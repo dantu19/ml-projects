@@ -74,3 +74,25 @@ class CatsDogsClassifier:
             epochs=epochs,
             verbose=1
         )
+
+    def predict(self, data: tf.data.Dataset, return_probabilities: bool = False):
+        """
+        Make predictions on new data.
+
+        Args:
+            data: Input data
+            return_probabilities: If True, return raw probabilities (0-1).
+                                If False, return class predictions ('cat' or 'dog').
+
+        Returns:
+            If return_probabilities=True: Array of probabilities
+            If return_probabilities=False: Array of class names
+        """
+        probabilities = self.model.predict(data, verbose=0)
+
+        if return_probabilities:
+            return probabilities.flatten()
+        else:
+            class_names = ['cat', 'dog']
+            predicted_classes = (probabilities > 0.5).astype(int).flatten()
+            return [class_names[i] for i in predicted_classes]
