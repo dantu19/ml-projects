@@ -1,6 +1,6 @@
 """Module for a binary classifier using Xception architecture for cats vs dogs classification."""
 import tensorflow as tf
-from typing import Tuple, Optional
+from typing import Tuple
 
 class CatsDogsClassifier:
     """Xception-based binary classifier for cats vs dogs."""
@@ -53,3 +53,24 @@ class CatsDogsClassifier:
             metrics=['accuracy']
         )
         return model
+
+    def train(
+        self,
+        train_dataset: tf.data.Dataset,
+        validation_dataset: tf.data.Dataset,
+        epochs: int = 5,
+    ):
+        """
+        Train the model on the provided dataset.
+
+        Args:
+            train_dataset: Training dataset
+            validation_dataset: Validation dataset (optional)
+            epochs: Number of training epochs
+        """
+        self.model.fit(
+            train_dataset,
+            validation_data=validation_dataset,
+            epochs=epochs,
+            verbose=1
+        )
