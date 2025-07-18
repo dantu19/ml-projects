@@ -27,7 +27,7 @@ class CatsDogsClassifier:
         self.freeze_base = freeze_base
         self.model = self._build_model()
         
-    def _build_model(self) -> tf.keras.Model:
+    def build_model(self) -> tf.keras.Model:
         """Build the Xception-based model."""
 
         base_model = tf.keras.applications.Xception(
