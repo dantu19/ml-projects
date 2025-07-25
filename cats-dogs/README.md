@@ -84,37 +84,9 @@ Each subdirectory should contain the respective animal images in common formats 
 The dataset is not included in this repository due to its large size. You can obtain it in several ways:
 
 1. **Kaggle Dataset (Recommended)**:
-   - Visit: https://www.kaggle.com/c/dogs-vs-cats/data
-   - Download `train.zip` and `test1.zip`
+   - Visit: https://www.kaggle.com/datasets/salader/dogs-vs-cats
+   - Download the data files
    - Extract and organize files according to the structure above
-
-2. **TensorFlow Datasets**:
-   ```bash
-   pip install tensorflow-datasets
-   ```
-   Then modify `data.py` to use `tfds.load('cats_vs_dogs')`
-
-3. **Sample Dataset for Testing**:
-   ```bash
-   python download_data.py --sample
-   ```
-   This creates a small sample dataset for testing the code structure.
-
-4. **Organize Downloaded Dataset**:
-   If you've downloaded the Kaggle dataset, use the organization script:
-   ```bash
-   python organize_dataset.py --train-zip train.zip --test-zip test1.zip
-   ```
-   Or organize from a directory with mixed images:
-   ```bash
-   python organize_dataset.py --source-dir /path/to/images
-   ```
-
-5. **Verify Dataset Setup**:
-   Check if your dataset is properly organized:
-   ```bash
-   python check_dataset.py
-   ```
 
 ### Dataset Statistics
 
